@@ -1,5 +1,12 @@
 # Ta Grading Script for Tampermonkey
 
+## Usage
+
+- builds a set of commands that will clone a pull request into a grading directory
+- places a button onto the github pull request page that copies the commands onto your clipboard
+- click the button to copy the commands
+- paste the commands into your terminal window
+
 ## Installation
 
 1. Install the Tampermonkey chrome extension via the [chrome webstore](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en).
