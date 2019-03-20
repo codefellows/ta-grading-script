@@ -37,16 +37,10 @@
         });
       })
       .then(data => {
-        // Make a grading directory in cas it does not exist
-        outputCommands.push('mkdir ~/cf');
-        outputCommands.push('mkdir ~/cf/ta');
-        outputCommands.push('mkdir ~/cf/ta/grading');
-
-        // Cd into the grading repo;
-        outputCommands.push('cd ~/cf/ta/grading/');
-
-        //make a directory for the student's code and cd into it;
-        outputCommands.push(`mkdir ${data.base.repo.owner.login} && cd ${data.base.repo.owner.login}`);
+        //  make a directory for the student's code and cd into it;
+        //    note: -p flag ensures that if the dirs do not exist, they will be made
+        //          if they do exist, they will be ignored for creation
+        outputCommands.push(`mkdir -p ~/cf/ta/grading/${data.base.repo.owner.login} && cd ${data.base.repo.owner.login}`);
 
 
         // Clear the most recent repo you were grading and clone the latest version
