@@ -51,7 +51,7 @@
 
         // Clear the most recent repo you were grading and clone the latest version
         outputCommands.push(`rm -rf ${repo}`);
-        outputCommands.push(`git clone https://github.com/${data.base.repo.owner.login}/${data.base.repo.name}`);
+        outputCommands.push(`git clone https://github.com/${data.base.repo.owner.login}/${data.base.repo.name} `);
         outputCommands.push(`cd ${repo}`);
 
         // If the pull request originated from a master branch, checks out a custom branch called not-master
