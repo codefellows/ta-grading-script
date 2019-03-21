@@ -45,8 +45,7 @@
 
         // Clear the most recent repo you were grading and clone the latest version
         outputCommands.push(`rm -rf ${repo}`);
-        outputCommands.push(`git clone https://github.com/${data.base.repo.owner.login}/${data.base.repo.name} `);
-        outputCommands.push(`cd ${repo}`);
+        outputCommands.push(`git clone https://github.com/${data.base.repo.owner.login}/${data.base.repo.name} && cd ${repo}`);
 
         // If the pull request originated from a master branch, checks out a custom branch called not-master
         const localBranchName = data.head.ref === 'master' ?
@@ -54,10 +53,9 @@
           data.head.ref;
 
         // Create the command to fetch and checkout the specific pull request
+        // Cd into the pull request branch name : makes grading code challenges quicker if student adheres to naming conventions of branches and folders
         outputCommands.push(`git fetch origin pull/${data.number}/head:${localBranchName}`);
         outputCommands.push(`git checkout ${localBranchName}`);
-
-        // Cd into the pull request branch name : makes grading code challenges quicker if student adheres to naming conventions of branches and folders
         outputCommands.push(`cd ${localBranchName}`);
 
         //Install node packages
