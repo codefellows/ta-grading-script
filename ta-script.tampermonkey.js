@@ -40,7 +40,8 @@
         //  make a directory for the student's code and cd into it;
         //    note: -p flag ensures that if the dirs do not exist, they will be made
         //          if they do exist, they will be ignored for creation
-        outputCommands.push(`mkdir -p ~/cf/ta/grading/${data.base.repo.owner.login} && cd ${data.base.repo.owner.login}`);
+        outputCommands.push(`mkdir -p ~/cf/ta/grading/${data.base.repo.owner.login}`);
+        outputCommands.push(`cd ${data.base.repo.owner.login}`);
 
 
         // Clear the most recent repo you were grading and clone the latest version
